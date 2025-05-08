@@ -49,6 +49,10 @@ const authFacilitator = new elexAuthFacilitatorCore.AuthFacilitator({
     // TODO: 这里就是获取到code的回调
     // 后续回调原生可以直接取这个code作为参数
     result.innerText = code
+    if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
+                window.AndroidWebView.auth('{"code":'+code+'}');
+            } 
+            console.log('{"code":'+code+'}')
   },
   successfulCallback(token, resolve) {
     resolve(token)
